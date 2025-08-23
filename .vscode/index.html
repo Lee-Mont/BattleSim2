@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Battle Simulator</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>⚔️ Army Battle Simulator ⚔️</h1>
+
+        <div class="status-info">
+            <div id="battleStatus">Ready to Battle!</div>
+            <div id="roundCounter">Round 0</div>
+        </div>
+
+        <div class="battlefield">
+            <div class="army alliance">
+                <div class="army-header">
+                    <div class="army-name">🛡️ Alliance Forces</div>
+                    <div class="army-power" id="alliancePower">Total Power: 0</div>
+                </div>
+                <div class="army-controls">
+                    <h4>Quick Presets:</h4>
+                    <div class="preset-buttons">
+                        <button class="preset-btn" onclick="applyPreset('alliance', 'balanced')">Balanced</button>
+                        <button class="preset-btn" onclick="applyPreset('alliance', 'infantry')">Infantry Heavy</button>
+                        <button class="preset-btn" onclick="applyPreset('alliance', 'tanks')">Tank Force</button>
+                        <button class="preset-btn" onclick="applyPreset('alliance', 'air')">Air Superiority</button>
+                    </div>
+                </div>
+                <div class="units-container" id="allianceUnits"></div>
+            </div>
+
+            <div class="army federation">
+                <div class="army-header">
+                    <div class="army-name">⚔️ Federation Troops</div>
+                    <div class="army-power" id="federationPower">Total Power: 0</div>
+                </div>
+                <div class="army-controls">
+                    <h4>Quick Presets:</h4>
+                    <div class="preset-buttons">
+                        <button class="preset-btn" onclick="applyPreset('federation', 'balanced')">Balanced</button>
+                        <button class="preset-btn" onclick="applyPreset('federation', 'infantry')">Infantry Heavy</button>
+                        <button class="preset-btn" onclick="applyPreset('federation', 'tanks')">Tank Force</button>
+                        <button class="preset-btn" onclick="applyPreset('federation', 'air')">Air Superiority</button>
+                    </div>
+                </div>
+                <div class="units-container" id="federationUnits"></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <button id="startBtn" onclick="startBattle()">▶️ Start Battle</button>
+                <button id="pauseBtn" onclick="pauseBattle()" style="display:none;">⏸️ Pause</button>
+                <button id="resetBtn" onclick="resetBattle()">🔄 Reset</button>
+            </div>
+
+            <div class="control-group speed-control">
+                <label for="speedSlider">Battle Speed:</label>
+                <input type="range" id="speedSlider" min="500" max="5000" step="500" value="2500" />
+                <span id="speedDisplay">Normal</span>
+            </div>
+        </div>
+
+        <div class="battle-log" id="battleLog"></div>
+
+        <div class="stats-grid" id="statsGrid" style="display:none;">
+            <div class="stat-card">
+                <h3>📊 Final Results</h3>
+                <div id="finalResults"></div>
+            </div>
+            <div class="stat-card">
+                <h3>💥 Damage Dealt</h3>
+                <div id="damageStats"></div>
+            </div>
+            <div class="stat-card">
+                <h3>👥 Survivors</h3>
+                <div id="survivorStats"></div>
+            </div>
+        </div>
+
+        <div class="winner-banner" id="winnerBanner"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
+</html>
